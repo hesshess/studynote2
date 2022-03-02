@@ -41,35 +41,32 @@ border: 굵기 종류 색상;
 - dashed : 끊긴선
 
 #### border값의 세분화
-- 위치에 따른 구분 : border-top, border-left, border-bottom, border-right
-- 속성에 따른 구분 : border-width, border-color, border-style
+
+| 구분 | 종류 | 값 |
+|---|---|---|
+| 위치에 따라 | `border-top`, `border-left`, `border-bottom`, `border-right` | `굵기 종류 색상`을 공백으로 구분 |
+| 속성에 따라 | `border-width`, `border-color`, `border-style` | `굵기 종류 색상`중 하나 |
 
 ### 3) padding
 
-#### 하나의 값을 명시하는 경우
+#### 기술하는 값에 따른 구분
 
-상,하/좌,우 모두 같은 값이 부여된다.
+| 구분 | 설명 | 예시 |
+|---|---|---|
+| 하나의 값 | 상,하/좌,우 모두 같은 값이 부여된다. | `padding: 10px;` |
+| 두 개의 값 | 첫 번째 값은 상,하를 의미. 두 번째 값은 좌,우를 의미한다. | `padding: 10px 20px;` |
+| 네 개의 값 | 상단부터 시계방향으로 회전하면서 부여 | `padding: 10px 20px 30px 40px;` |
 
-```css
-padding: 10px;
-```
+#### 위치에 따른 속성 구분
 
+아래의 속성들은 단 하나의 값만을 갖는다.
 
-#### 두 개의 값을 명시하는 경우
-
-첫 번째 값은 상,하를 의미. 두 번째 값은 좌,우를 의미한다.
-
-```css
-padding: 10px 20px;
-```
-
-#### 네 개의 값을 명시하는 경우
-
-상단부터 시계방향으로 회전하면서 부여된다.
-
-```css
-padding: 10px 20px 30px 40px;
-```
+| 속성 | 설명 |
+|---|---|
+| padding-left | 왼쪽 여백 |
+| padding-right | 오른쪽 여백 |
+| padding-top | 상단 여백 |
+| padding-bottom | 하단 여백 |
 
 ## #03. 박스의 크기 구성
 
@@ -88,27 +85,4 @@ padding: 10px 20px 30px 40px;
 1. 자식요소의 크기 총 합은 부모 요소의 width, height를 벗어날 수 없다.
 1. 자식요소의 width, height를 %로 부여할 경우 부모의 width, height를 기준으로 한다.
 
-### 3) auto값의 사용
 
-#### **width** 속성에 사용하는 경우.
-
-부모 요소의 width에서 현재 자신의 padding, border 크기를 뺀 나머지를 자동으로 계산하여 갖는다.
-(실질적인 100% 처리 효과.)
-
-#### **height** 속성에 사용하는 경우
-
-자신이 포함하고 있는 내용만큼 높이를 구성한다.(박스의 기본특성)
-
-### 4) 화면을 가득 채우는 박스 만들기
-
-width, height는 부모요소를 기준으로 크기를 갖기 때문에 "박스 > body > html" 순으로 부모에게도 100% 크기를 부여해야 한다.
-
-1. `<body>`태그가 갖는 기본 여백을 제거한다.
-    ```css
-    body { padding: 0; margin: 0; }
-    ```
-1. 박스에게 width, height를 100%로 부여하기 위해서는 박스의 부모요소의 크기를 부여해야 기준으로 삼을 수 있다.
-1. 박스의 부모 요소는 `<body>`태그 이고 `<body>`의 부모 요소는 `<html>`이므로 이 두 요소에게 모두 크기를 부여한다.
-    ```css
-    html, body { width: 100%; height: 100%; }
-    ```
