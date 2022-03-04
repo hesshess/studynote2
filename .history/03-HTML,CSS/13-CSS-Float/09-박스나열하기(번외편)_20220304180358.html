@@ -8,33 +8,42 @@
     />
     <title>CSS Example</title>
     <style type="text/css">
+        /*전체 박스의 크기 지정과 중앙 배치*/
       #container {
         width: 800px;
         border: 5px dotted #cccccc;
         padding: 10px;
         margin: auto;
       }
-      /*모든 박스의 크기 일괄 지정*/
+      /*모든 박스에게 동일한 float지정*/
       #container div {
-        width: 200px;
-        height: 200px;
         float: left;
       }
-      /*각 박스에 대한 배경 색상 지정*/
+      /*각 박스에 대한 배경 색상 크기 지정*/
       div#box1 {
-        background-color: #ff00ff;
+        background-color: #ff00ff
+        width: 800px;
+        height:100px;
       }
       div#box2 {
         background-color: #0000ff;
+        width: 200px;
+        height:300px;
       }
       div#box3 {
         background-color: #00ff00;
+        width: 600px;
+        height:125px;
       }
       div#box4 {
         background-color: #ff6600;
+        width: 300px;
+        height:150px;
       }
       div#box5 {
         background-color: #ffff00;
+        width: 300px;
+        height:150px;
       }
       /*float 마감제*/
       .clear:after {
