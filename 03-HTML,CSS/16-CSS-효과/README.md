@@ -114,3 +114,81 @@ transition: 속성명 시간 [리듬];
 | ease-out | 일정한 속도의 등속으로 시작해서 점점 느려지면서 종료한다. |
 | ease-in-out | ease와 비슷하게 느리게 시작하여 느리지면서 종료한다. |
 
+
+## #05. Media Query
+
+CSS가 적용될 해상도 구간을 지정하여 구간별로 CSS를 다르게 적용하는 기법
+
+### 1) 적용예시
+
+#### 최소 해상도만 지정한 경우
+
+```CSS
+@media screen and (min-width: 최소넓이px) {
+    selector {
+        속성: 값
+    }
+}
+```
+
+#### 최소 해상도만 지정한 경우
+
+```CSS
+@media screen and (max-width: 최대넓이px) {
+    selector {
+        속성: 값
+    }
+}
+```
+
+#### 해상도 구간을 지정한 경우
+
+```CSS
+@media screen and (min-width: 최소넓이px) and (max-width: 최대넓이px) {
+    selector {
+        속성: 값
+    }
+}
+```
+
+### 2) 반응형 웹
+
+미디어 쿼리를 활용하여 하나의 웹 페이지가 해상도 구간에 따라 다른 레이아웃으로 구성되도록 한 웹 페이지
+
+#### 최소 해상도 중심
+
+```CSS
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) { ... }
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) { ... }
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) { ... }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) { ... }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media screen and (min-width: 1400px) { ... }
+```
+
+#### 최대 해상도 중심
+
+```CSS
+/* X-Small devices (portrait phones, less than 576px) */
+@media screen and (max-width: 576px) { ... }
+
+/* Small devices (landscape phones, less than 768px) */
+@media screen and (max-width: 768px) { ... }
+
+/* Medium devices (tablets, less than 992px) */
+@media screen and (max-width: 992px) { ... }
+
+/* Large devices (desktops, less than 1200px) */
+@media screen and (max-width: 1200px) { ... }
+
+/* X-Large devices (large desktops, less than 1400px) */
+@media screen and (max-width: 1400px) { ... }
+```
