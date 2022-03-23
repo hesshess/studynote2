@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="text"></h1>
+    <button id="1">1일</button><button id="7">7일</button
+    ><button id="15">15일</button><button id="30">30일</button
+    ><button id="60">60일</button>
+    <script>
+      const text = document.querySelector('#text');
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const date = now.getDate();
+      text.innerHTML = `${year} - ${month} - ${date} ~ ${year} - ${month} - ${date}`;
+
+      document.querySelectorAll('button').forEach((v, i) => {
+        v.addEventListener('click', (e) => {
+          const days = e.currentTarget.getAttribute('id');
+          const day = 864000 * days - 864000;
+          const past = now - day;
+          const pmonth = past.getMonth();
+          const pdate = past.getDate();
+          text.innerHTML = `${year} - ${pmonth} - ${pdate} ~ ${year} - ${month} - ${date}`;
+        });
+      });
+    </script>
+  </body>
+</html>

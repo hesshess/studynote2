@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><span id="s_date"></span>~<span id="e_date"></span></h1>
+    <input type="button" value="1일" id="1" /><input
+      type="button"
+      value="7일"
+      id="7"
+    /><input type="button" value="15일" id="15" /><input
+      type="button"
+      value="30일"
+      id="30"
+    /><input type="button" value="60일" id="60" />
+
+    <script type="text/javascript">
+      function setTerm(days) {
+        let today = new Date();
+        let start_date = new Date();
+
+        start_date.setDate(start_date.getDate() - (days - 1));
+
+        document.getElementById('s_date').innerHTML =
+          start_date.getFullYear() +
+          '-' +
+          (start_date.getMonth() + 1) +
+          '-' +
+          start_date.getDate();
+        document.getElementById('e_date').innerHTML =
+          today.getFullYear() +
+          '-' +
+          (today.getMonth() + 1) +
+          '-' +
+          today.getDate();
+      }
+      setTerm(1);
+
+      document.querySelectorAll('input').forEach((v, i) => {
+        v.addEventListener('click', (e) => {
+          let days = e.currentTarget.getAttribute('id');
+          console.log(days);
+          setTerm(Number(days));
+        });
+      });
+    </script>
+  </body>
+</html>

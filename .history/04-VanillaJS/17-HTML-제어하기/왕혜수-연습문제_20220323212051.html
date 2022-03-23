@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="text"></h1>
+    <button>1일</button><button>7일</button><button>15일</button
+    ><button>30일</button><button>60일</button>
+    <script>
+      const text = document.querySelector('#text');
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const date = now.getDate();
+
+      text.innerHTML = `${year} - ${month} - ${date}`;
+    </script>
+  </body>
+</html>

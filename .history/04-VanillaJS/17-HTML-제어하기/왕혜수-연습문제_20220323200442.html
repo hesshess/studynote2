@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="text"></h1>
+    <script>
+      const text = document.querySelector('#text');
+      const now = new Date();
+
+      const year = now.getFullYear();
+
+      const month = now.getMonth() + 1;
+
+      const date = now.getDate();
+
+      const hour = now.getHours();
+      console.log(time);
+      const minute = now.getMinutes();
+      console.log(minute);
+      const second = now.getSeconds();
+      console.log(second);
+
+      text.innerHTML = `${year} : ${month} : ${date} : ${hour} : ${minute} : ${second}`;
+    </script>
+  </body>
+</html>
