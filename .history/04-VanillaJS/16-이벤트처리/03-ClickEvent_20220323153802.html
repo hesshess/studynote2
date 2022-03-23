@@ -25,6 +25,9 @@
       //이벤트가 발생할 대상을 JS객체로 가져온다.
       const eventBox = document.querySelector('#lister');
 
+      eventBox.addEventListener('dblclick', (e) => {
+        e.currentTarget.innerHTML = 'Double Click Event';
+      });
       //콜백함수에 전달되는 파라미터 'e'는 이벤트 정보
       eventBox.addEventListener('click', function (e) {
         //e.currentTarget 혹은 e.target은 이벤트가 발생한 자기자신
@@ -44,10 +47,6 @@
         console.log(
           '모니터 기준: screenX: ' + e.screenX + ', screenY: ' + e.screenY
         );
-      });
-
-      eventBox.addEventListener('dblclick', (e) => {
-        e.currentTarget.innerHTML = 'Double Click Event';
       });
 
       eventBox.addEventListener(
