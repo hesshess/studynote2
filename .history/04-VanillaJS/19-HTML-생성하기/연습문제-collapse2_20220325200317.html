@@ -54,11 +54,8 @@
 
     <script>
       //코드의 재사용을 위해 이벤트 처리를 별도의 함수로 정의함.
-      const onClick = (e) => {
-        //클릭된 자기 자신
-        const current = e.currentTarget;
-
-        //스스로에게 acrive클래스에 대한 적용 여부 변경
+      const onClick = (current) => {
+        //스스로에게 active클래스에 대한 적용 여부 변경
         current.classList.toggle('active');
 
         //클릭된 자신의 상위 요소인 <div class="collapse">
@@ -77,31 +74,16 @@
 
       document.querySelectorAll('.collapsible-title').forEach((v, i) => {
         //미리 정의한 함수를 이벤트 리스너로 등록(1)
-        v.addEventListener('click', onClick);
+        v.addEventListener('click', (e) => {
+          onClick(e.currentTarget);
+        });
       });
-
       document.querySelector('#btn').addEventListener('click', (e) => {
-        const div = document.createElement('div');
-        div.classList.add('collapse');
-
-        const h1 = document.createElement('h1');
-        h1.classList.add('collapsible-title');
-        h1.innerHTML = 'Open Collapsible';
-        div.appendChild(h1);
-
-        //미리 정의한 함수를 이벤트 리스너로 등록(2)
-        h1.addEventListener('click', onclick);
-
-        const div2 = document.createElement('div');
-        div2.classList.add('content');
-        div.appendChild(div2);
-
-        const p = document.createElement('p');
-        p.innerHTML =
-          'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit dignissimos quo eaque molestiae temporibus maiores quasi at nostrum eum, rerum tempora autem voluptates magnam corrupti quidem accusantium aliquid nobis magni?';
-        div2.appendChild(p);
-
-        document.querySelector('#container').appendChild(div);
+        const html =
+          "<div class='collapse'><h1 onclick='onclick(this)' class='collapsible-title'>Open Collapsible</h1><div class='content'><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit dignissimos quo eaque molestiae temporibus maiores quasi at nostrum eum, rerum tempora autem voluptates magnam corrupti quidem accusantium aliquid nobis magni?</p></div></div>";
+        document
+          .querySelector('#container')
+          .insertAdjacentHTML('beforeend', html);
       });
     </script>
   </body>

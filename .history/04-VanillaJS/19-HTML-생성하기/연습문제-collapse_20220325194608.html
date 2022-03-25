@@ -35,25 +35,23 @@
   </head>
   <body>
     <h2>Animated Collapsibles</h2>
-    <p>A Collapsible: <button type="button" id="btn">new collapse</button></p>
-
-    <!-- appendchild를 적용하기 위한 부모태그 추가 -->
-    <div id="container">
-      <div class="collapse">
-        <h1 class="collapsible-title">Open Collapsible</h1>
-        <div class="content">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
-            dignissimos quo eaque molestiae temporibus maiores quasi at nostrum
-            eum, rerum tempora autem voluptates magnam corrupti quidem
-            accusantium aliquid nobis magni?
-          </p>
-        </div>
+    <p>A Collapsible:</p>
+    <button type="button" id="btn">new collapse</button>
+    <div class="collapse">
+      <h1 class="collapsible-title">Open Collapsible</h1>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
+          dignissimos quo eaque molestiae temporibus maiores quasi at nostrum
+          eum, rerum tempora autem voluptates magnam corrupti quidem accusantium
+          aliquid nobis magni?
+        </p>
       </div>
     </div>
+    <div class="last"></div>
 
     <script>
-      //코드의 재사용을 위해 이벤트 처리를 별도의 함수로 정의함.
+      //코드릐 재사용을 위해 이벤트 처리를 별도의 함수로 정의함.
       const onClick = (e) => {
         //클릭된 자기 자신
         const current = e.currentTarget;
