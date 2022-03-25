@@ -47,8 +47,8 @@
           aliquid nobis magni?
         </p>
       </div>
+      <div class="last"></div>
     </div>
-    <div class="last"></div>
 
     <script>
       document.querySelectorAll('.collapsible-title').forEach((v, i) => {
@@ -71,6 +71,25 @@
             content.style.maxHeight = content.scrollHeight + 'px';
           }
         });
+      });
+
+      const getItem = () => {
+        const div1 = document.createElement('div');
+        div1.classList.add('collapse');
+        //const h1 = div1.createElement('h1');
+        //h1.classList.add('collapsible-title');
+        //h1.innerHTML = 'Open Collapsible';
+        //const div2 = div1.createElement('div');
+        //div2.classList.add('content');
+        //const p = div2.createElement('p');
+        //p.innerHTML =
+        //  'Lorem ipsum dolor, sit amet consectetur// adipisicing elit. Impedit dignissimos quo eaque// molestiae temporibus maiores quasi at nostrum eum,// rerum tempora autem voluptates magnam corrupti// quidem accusantium aliquid nobis magni?';
+      };
+
+      const last = document.querySelector('.last');
+      const btn = document.querySelector('#btn');
+      btn.addEventListener('click', (e) => {
+        last.insertBefore(getItem, null);
       });
     </script>
   </body>

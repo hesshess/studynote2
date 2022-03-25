@@ -72,6 +72,20 @@
           }
         });
       });
+
+      const getItem = (collapse) => {
+        const col = document.createElement('div');
+        col.classList.add(collapse);
+        col.insertAdjacentHTML(
+          'afterbegin',
+          "<h1 class='collapsible-title'>Open Collapsible</h1><div class='content'><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impeditdignissimos quo eaque molestiae temporibus maiores quasi at nostrumeum, rerum tempora autem voluptates magnam corrupti quidem accusantiumaliquid nobis magni?</p></div></li>"
+        );
+      };
+
+      const last = document.querySelector('.last');
+      document.querySelector('#btn').addEventListener('click', (e) => {
+        last.insertBefore(getItem('.collapse'), null);
+      });
     </script>
   </body>
 </html>
