@@ -217,20 +217,20 @@
 
         try {
           /*아이디 검사*/
-          regexHelper.value('#user_id', '아이디를 입력하세요.');
+          regexHelper.value('#user_id', '아이디를 입력하세요');
           regexHelper.minLength(
             '#user_id',
             4,
-            '아이디는 최소 4자 이상 입력 가능합니다.'
+            '아이디는 최소 4자 이상 입력 가능합니다'
           );
           regexHelper.maxLength(
             '#user_id',
             20,
-            '아이디는 최대 20자 까지 입력 가능합니다.'
+            '아이디는 최대 20자 까지 입력 가능합니다'
           );
           regexHelper.engNum(
             '#user_id',
-            '아이디는 영어와 숫자 조합만 입력 가능합니다.'
+            '아이디는 영어와 숫자 조합만 입력 가능합니다'
           );
 
           /*비밀번호 검사*/
@@ -238,12 +238,12 @@
           regexHelper.minLength(
             '#user_pw',
             4,
-            '비밀번호는 최소 4자 이상 입력 가능합니다.'
+            '비밀번호는 최소 4자 이상 입력 가능합니다'
           );
           regexHelper.maxLength(
             '#user_pw',
             20,
-            '비밀번호는 최대 20자 까지 입력 가능합니다.'
+            '비밀번호는 최대 20자 까지 입력 가능합니다'
           );
           regexHelper.compareTo(
             '#user_pw',

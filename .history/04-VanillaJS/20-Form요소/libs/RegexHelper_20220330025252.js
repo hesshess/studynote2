@@ -234,7 +234,6 @@ class RegexHelper {
     return true; //성공했음을 리턴
   }
 
-  /////////////////////////////////////////////////////////
   /**
    * 드롭다운이 선택됐는지 확인한다
    * @param {string} selector 검사할 대상의 CSS 선택자
@@ -247,30 +246,6 @@ class RegexHelper {
       throw new BadRequestException(msg, selector);
     }
     return true;
-  }
-  /**
-   * 년도 형식인지 검사하기 위해 field()를 간접적으로 호출
-   * @param {string} selector 검사할 대상의 css 선택자
-   * @param {string} msg      표시할 메세지 내용
-   */
-  year(selector, msg) {
-    return this.field(selector, msg, /^(19|20)\d{2}$/);
-  }
-  /**
-   * 날짜 형식인지 검사하기 위해 field()를 간접적으로 호출
-   * @param {string} selector 검사할 대상의 css 선택자
-   * @param {string} msg      표시할 메세지 내용
-   */
-  date(selector, msg) {
-    return this.field(selector, msg, /^0[1-9]|[12][0-9]|3[0-1]$/);
-  }
-  /**
-   * 인증번호 형식인지 검사하기 위해 field()를 간접적으로 호출
-   * @param {string} selector 검사할 대상의 css 선택자
-   * @param {string} msg      표시할 메세지 내용
-   */
-  verify(selector, msg) {
-    return this.field(selector, msg, /^\d{4}$/);
   }
 }
 
