@@ -30,32 +30,5 @@
 
     <button id="btn1" type="button">다음 예제로 이동</button>
     <button id="btn2" type="button">페이지 새로고침</button>
-
-    <script type="text/javascript">
-      document.querySelector('#datetime').innerHTML = new Date();
-
-      document.querySelector('#location1').innerHTML = decodeURIComponent(
-        location.href
-      );
-      document.querySelector('#location2').innerHTML = location.host;
-      document.querySelector('#location3').innerHTML = location.hostname;
-      document.querySelector('#location4').innerHTML = location.hash;
-      document.querySelector('#location5').innerHTML = decodeURIComponent(
-        location.pathname
-      );
-      document.querySelector('#location6').innerHTML = location.port;
-      document.querySelector('#location7').innerHTML = location.protocol;
-      document.querySelector('#location8').innerHTML = location.search;
-
-      document.querySelector('#btn1').addEventListener('click', (e) => {
-        if (confirm('정말 이동하시겠습니까?')) {
-          location.href = '06-querystring.html';
-        }
-      });
-
-      document.querySelector('#btn2').addEventListener('click', (e) => {
-        location.reload();
-      });
-    </script>
   </body>
 </html>

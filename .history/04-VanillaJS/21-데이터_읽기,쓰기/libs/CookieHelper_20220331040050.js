@@ -27,7 +27,6 @@ class CookieHelper {
       updatedCookie += ';' + optionKey;
       let optionValue = options[optionKey];
       if (optionValue !== true) {
-        //path:true 일경우 저장 안하겠다는 뜻(로직값은 쿠키로 저장이 안됨)
         updatedCookie += '=' + optionValue;
       }
     }
@@ -42,7 +41,7 @@ class CookieHelper {
 
   getCookie(name) {
     //주어진 이름에 대해 "; name=<value>" 패턴을 찾아 <value>부분만 반환
-    console.log(name);
+
     console.log(
       new RegExp(
         '(?:^|; )' +

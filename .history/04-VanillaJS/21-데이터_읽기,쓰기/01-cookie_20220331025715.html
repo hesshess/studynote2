@@ -28,8 +28,8 @@
     <script>
       document.querySelector('#save').addEventListener('click', (e) => {
         //선택한 쿠키 이름 가져오기
-        const cookieName = document.querySelector('#cookie_name');
-        const cookieNameChoose = cookieName[cookieName.selectedIndex].value;
+        const cookieNAme = document.querySelector('#cookie_name');
+        const cookieNameChoose = cookieName[cookieName.seletedIndex].value;
 
         //선택한 쿠키의 유효시간 가져오기
         const cookieTime = document.querySelector('#cookie_time');
@@ -48,7 +48,7 @@
           ';';
 
         if (cookieTimeChoose) {
-          cookie_str += 'max-age=' + cookieTimeChoose + ';';
+          cookie_str += 'max-age' + cookieTimeChoose + ';';
         }
 
         console.log(cookie_str);
