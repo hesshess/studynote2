@@ -79,7 +79,7 @@ const students = [
 
 // Q9. compute students' average score
 {
-  const result9 = students.reduce((prev, curr) => prev + current.score, 0);
+  const result9 = students.reduce((prev, curr) => prev + curr.score, 0);
   //0부터 시작하여 하나씩 더하는 식, prev은 이전값의 리턴
   console.log(result9 / students.length);
 }

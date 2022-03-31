@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="subplot">
+      <h2>기본 막대 그래프</h2>
+      <div class="subplot-item">
+        <canvas id="mychart2"></canvas>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="dataset.js"></script>
+    <script>
+      //문제1
+
+      //각학생들의 학과를 도출
+      const deptno = [];
+      for (let i = 0; i < student.length; i++) {
+        deptno[i] = student[i].deptno;
+      }
+
+      //중복되는 않는 학과 따로 배열화
+      const department = [];
+      deptno.map((i) => {
+        if (department.indexOf(i) == -1) {
+          department.push(i);
+        }
+      });
+      console.log(department);
+
+      //학과별 학생수를 카운트하기 위한 숫자0으로만 이루어진 배열 생성
+      const studentCount = [];
+      department.map((i) => {
+        studentCount.push(0);
+      });
+
+      //department[i] 와 deptno 원소가 같은때마다 studentCount[i] 증가
+      for (let i = 0; i < studentCount.length; i++) {
+        deptno.map((v) => {
+          if (department[i] == v) {
+            studentCount[i]++;
+          }
+        });
+      }
+      console.log(studentCount);
+
+      const mychart2 = document.getElementById("mychart2");
+
+      /*기본 막대 그래프 그리기*/
+      new Chart(mychart2, {
+        type: "bar",
+        data: {
+          labels: department,
+          datasets: [
+            {
+              data: studentCount,
+              borderWidth: 0.5,
+
+              borderColor: [
+                "rgba(255,99,132,1)",
+                "rgba(54,162,235,1)",
+                "rgba(255,206,86,1)",
+              ],
+              backgroundColor: [
+                "rgba(255,99,132,0.2)",
+                "rgba(54,162,235,0.2)",
+                "rgba(255,206,86,0.2)",
+              ],
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          indexAxis: "x",
+        },
+      });
+    </script>
+  </body>
+</html>
