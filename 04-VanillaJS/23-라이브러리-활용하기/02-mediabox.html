@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>MedaiBox 라이트박스 플러그인</h1>
+    <p>
+      <a href="https://github/pinceladasdaweb/mediabox"
+        >https://github/pinceladasdaweb/mediabox</a
+      >
+    </p>
+    <hr />
+    <div class="translated-ltr">
+      <a href="https://www.youtube.com/watch?v=cdX5JvL43oM" class="mediabox">
+        <!-- 
+                동영상배경 썸네일(480x360): https://img.youtube.com/vi/동영상코드/0.jpg
+                동영상 시작시점 썸네일(120x90): https://img.youtube.com/vi/동영상코드/1.jpg
+                동영상 중간시점 썸네일(120x90): https://img.youtube.com/vi/동영상코드/2.jpg
+                동영상 끝점 썸네일(120x90): https://img.youtube.com/vi/동영상코드/3.jpg
+                고해상도 썸네일(1280x720): https://img.youtube.com/vi/동영상코드/maxresdefault.jpg
+                중간해상도 썸네일(640x480): https://img.youtube.com/vi/동영상코드/sddefault.jpg
+                고품질 썸네일(480x360) :https://img.youtube.com/vi/동영상코드/mqdefault.jpg
+                보통품질 썸네일(120x90):<img src = "https://img.youtube.com/vi/동영상코드/default.jpg"/>
+              -->
+        <img src="https://img.youtube.com/vi/동영상코드/default.jpg" />
+      </a>
+    </div>
+
+    <script type="text/javascript" src="dist/mediabox.js"></script>
+    <script type="text/javascript">
+      //youtube 영상 주소를 갖는 링크에 대한 css 선택자를 파라미터로 전달하여 플러그인 함수 호출
+      MediaBox(".mediabox");
+    </script>
+  </body>
+</html>
