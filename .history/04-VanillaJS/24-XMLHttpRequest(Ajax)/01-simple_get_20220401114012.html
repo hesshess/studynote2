@@ -1,4 +1,4 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,22 +13,19 @@
     </style>
   </head>
   <body>
-    <h1>Simple Module</h1>
-    <a href="#" id="btn">load hello.json</a>
+    <h1>Simple Get</h1>
+    <a href="backend/hello.html">move to the hello.html</a>
+    <a href="#" id="btn">load hello.html</a>
     <div id="console"></div>
-
-    <script src="libs/ajaxHelper.js"></script>
 
     <script>
       document.querySelector('#btn').addEventListener('click', (e) => {
         e.preventDefault();
 
-        ajaxHelper('backend/hello.json', 'GET', (json) => {
-          const h1 = document.createElement('h1');
-          h1.classList.add('text-success');
-          h1.innerHTML = json.msg;
-          document.querySelector('#console').appendChild(h1);
-        });
+        const xhr = new XMLHttpRequest(); //Ajax 기능을 수행하는 통신 객체
+        const method = 'GET'; //백엔드 페이지에 접속하는 방식 (GET,POST,PUT,DELETE)-> Node.js에서 설명
+        const url = 'backend/hello.html'; //요청(접속)할 대상 페이지 주소 -> 이 파일의 소스코드를 읽어온다
+        xhr.open(method, url);
       });
     </script>
   </body>

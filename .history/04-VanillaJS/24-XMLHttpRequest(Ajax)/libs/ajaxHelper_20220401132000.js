@@ -1,29 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      .text-success {
-        color: #0066ff;
-        font-size: 24px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Simple Json</h1>
-    <a href="#" id="btn">load hello.json</a>
-    <div id="console"></div>
+/**
+ * Ajax요청을 처리하고 결과 (JSON)을 콜백함수에게 전달한다
+ * ex)ajaxHelper("backend/simple.json", "GET", json=>{...});
+ * @param {string} url
+ * @param {string} method
+ * @param {function} success
+ */
 
-    <script>
-      document.querySelector('#btn').addEventListener('click', (e) => {
-        e.preventDefault();
+function ajaxHelper(url,method,success){
 
         const xhr = new XMLHttpRequest();
-        const method = 'GET';
-        const url = 'backend/hello.json';
         xhr.open(method, url);
 
         xhr.onreadystatechange = (e) => {
@@ -31,17 +16,11 @@
 
           if (ajax.readyState == XMLHttpRequest.DONE) {
             if (ajax.status == 200) {
-              //ajax.responseText --> 통신을 통해 읽어온 내용
-              //데이터타입이 string이므로 JSON객체로 변환이 필요함
+                if(success != undefined){
               const json = JSON.parse(ajax.responseText);
-              console.log(json);
+              success(json);
 
-              //동적으로 <h1> 태그 생성-> <h1 class="text-success">hello.ajax</h1>
-              const h1 = document.createElement('h1');
-              h1.classList.add('text-success');
-              h1.innerHTML = json.msg;
-
-              document.querySelector('#console').appendChild(h1);
+                }
             } else {
               const s = parseInt(ajax.status / 100);
               if (s == 4) {
@@ -73,7 +52,7 @@
           } //end if
         };
         xhr.send();
-      });
+      }
     </script>
   </body>
 </html>

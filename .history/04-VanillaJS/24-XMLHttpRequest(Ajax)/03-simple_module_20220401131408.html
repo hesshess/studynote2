@@ -23,13 +23,14 @@
       document.querySelector('#btn').addEventListener('click', (e) => {
         e.preventDefault();
 
-        ajaxHelper('backend/hello.json', 'GET', (json) => {
-          const h1 = document.createElement('h1');
-          h1.classList.add('text-success');
-          h1.innerHTML = json.msg;
-          document.querySelector('#console').appendChild(h1);
-        });
-      });
+        ajaxHelper("backend/hello.json", "GET", (json)=>{
+            const h1 = document.createElement("h1");
+            h1.classList.add("text-success");
+            h1.innerHTML = json.msg;
+            document.querySelector("#console").appendChild(h1);
+        })
+          } //end if
+        };
     </script>
   </body>
 </html>

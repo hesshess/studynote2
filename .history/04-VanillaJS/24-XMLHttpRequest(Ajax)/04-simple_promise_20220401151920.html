@@ -55,32 +55,6 @@
           xhr.send();
         });
       }
-
-      document.querySelector('#btn').addEventListener('click', (e) => {
-        //준비한 함수를 호출하여 promise객체를 변환 받는다
-        //이 과정에서 이미 Ajax연동처리는 완표되고 결과에 따라 resolve나 reject가 호출될 것이다
-        const promise = getDeptItem();
-        promise
-          .then((json) => {
-            const h1 = document.createElement('h1');
-            h1.classList.add('text-success');
-            h1.innerHTML = json.msg;
-            document.querySelector('#console').appendChild(h1);
-          })
-          .catch((e) => {
-            //reject가 호출됨에 따라 실행된다
-            console.error(e);
-            alert(e.msg);
-          });
-
-        //primise 기법은 Ajax의 다중처리로 인한 콜백헬 현상을 완전히 해결하지는 못한다.
-        //다만 Ajax처리에서 다소 복잡한 호출과정과 성공, 실패에 따른 결과 처리 부분을
-        //분리해냈다는 점에서 코드의 관리가 조금 수월해 질 수 있다.
-
-        //그래서 현재의 JS에서는 Promise가 개선된 async-await 기법을 새롭게 고안하여 사용중이다.
-
-        //--> Async-Await 가 JS문법의 끝판왕.
-      });
     </script>
   </body>
 </html>
