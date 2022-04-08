@@ -8,7 +8,7 @@ Array.from(document.querySelectorAll('*[data-include]')).map(async (v, i) => {
     //inc/header.html 소스코드 가져옴
     const response = await axios.get(include);
     console.log(response);
-    html = response.data; //전체 html자체
+    html = response.data;
   } catch (e) {
     console.error(e);
   }
