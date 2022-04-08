@@ -124,7 +124,9 @@
           document.querySelector('#userid').value = data.userid;
           document.querySelector('#grade').value = data.grade;
           document.querySelector('#idnum').value = data.idnum;
-          document.querySelector('#birthdate').value = data.birthdate;
+          document.querySelector('#birthdate').value = new Date(
+            data.birthdate
+          ).toLocaleDateString();
           document.querySelector('#tel').value = data.tel;
           document.querySelector('#height').value = data.height;
           document.querySelector('#weight').value = data.weight;

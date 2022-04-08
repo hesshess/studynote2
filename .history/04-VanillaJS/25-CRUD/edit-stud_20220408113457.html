@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>학생 관리 ::: MYSCHOOL</title>
+    <title>교수 관리 ::: MYSCHOOL</title>
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
@@ -18,7 +18,7 @@
           <input type="hidden" name="id" id="id" />
 
           <div class="form-group">
-            <label for="name">학생이름<span class="text-danger">*</span></label>
+            <label for="name">교수이름<span class="text-danger">*</span></label>
             <div><input type="text" name="name" id="name" /></div>
           </div>
           <div class="form-group">
@@ -28,51 +28,33 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="grade">학년</label>
+            <label for="position">직급</label>
             <div>
-              <input type="text" name="grade" id="grade" />
+              <input type="text" name="position" id="position" />
             </div>
           </div>
           <div class="form-group">
-            <label for="idnum">주민번호</label>
+            <label for="sal">급여</label>
             <div>
-              <input type="text" name="idnum" id="idnum" />
+              <input type="text" name="sal" id="sal" />
             </div>
           </div>
           <div class="form-group">
-            <label for="birthdate">생년월일</label>
+            <label for="hiredate">입사일</label>
             <div>
-              <input type="date" name="birthdate" id="birthdate" />
+              <input type="date" name="hiredate" id="hiredate" />
             </div>
           </div>
           <div class="form-group">
-            <label for="tel">전화번호</label>
+            <label for="comm">보직수당</label>
             <div>
-              <input type="text" name="tel" id="tel" />
+              <input type="text" name="comm" id="comm" />
             </div>
           </div>
           <div class="form-group">
-            <label for="height">키</label>
-            <div>
-              <input type="text" name="height" id="height" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="weight">몸무게</label>
-            <div>
-              <input type="text" name="weight" id="weight" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="deptno">학과번호</label>
+            <label for="deptno">부서번호(학과번호)</label>
             <div>
               <input type="text" name="deptno" id="deptno" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="profno">담당교수의 일련번호</label>
-            <div>
-              <input type="text" name="profno" id="profno" />
             </div>
           </div>
           <hr />
@@ -98,7 +80,7 @@
 
         //파라미터가 정상적이지 않으므로 메시지 출력, 전페이지이동 처리후 수행중단(return)
         if (!id) {
-          alert('학생번호가 없습니다');
+          alert('학과번호가 없습니다');
           history.back();
           return;
         }
@@ -108,7 +90,7 @@
         let json = null;
 
         try {
-          json = await axios.get(`http://localhost:3000/student/${id}`);
+          json = await axios.get(`http://localhost:3000/professor/${id}`);
         } catch (e) {
           console.error(e);
           alert('요청을 처리하는데 실패했습니다');
@@ -122,14 +104,11 @@
           document.querySelector('#id').value = data.id;
           document.querySelector('#name').value = data.name;
           document.querySelector('#userid').value = data.userid;
-          document.querySelector('#grade').value = data.grade;
-          document.querySelector('#idnum').value = data.idnum;
-          document.querySelector('#birthdate').value = data.birthdate;
-          document.querySelector('#tel').value = data.tel;
-          document.querySelector('#height').value = data.height;
-          document.querySelector('#weight').value = data.weight;
+          document.querySelector('#position').value = data.position;
+          document.querySelector('#sal').value = data.sal;
+          document.querySelector('#hiredate').value = data.hiredate;
+          document.querySelector('#comm').value = data.comm;
           document.querySelector('#deptno').value = data.deptno;
-          document.querySelector('#profno').value = data.profno;
         }
       })();
 
@@ -143,31 +122,25 @@
           const id = document.querySelector('#id').value;
           const name = document.querySelector('#name').value;
           const userid = document.querySelector('#userid').value;
-          const grade = document.querySelector('#grade').value;
-          const idnum = document.querySelector('#idnum').value;
-          const birthdate = document.querySelector('#birthdate').value;
-          const tel = document.querySelector('#tel').value;
-          const weight = document.querySelector('#weight').value;
-          const height = document.querySelector('#height').value;
+          const position = document.querySelector('#position').value;
+          const sal = document.querySelector('#sal').value;
+          const hiredate = document.querySelector('#hiredate').value;
+          const comm = document.querySelector('#comm').value;
           const deptno = document.querySelector('#deptno').value;
-          const profno = document.querySelector('#profno').value;
 
           //입력값에 대한 유효성 검사 진행....(이 예제에서는 생략)
 
           let json = null;
 
           try {
-            json = await axios.put(`http://localhost:3000/student/${id}`, {
+            json = await axios.put(`http://localhost:3000/professor/${id}`, {
               name: name,
               userid: userid,
-              grade: grade,
-              idnum: idnum,
-              birthdate: birthdate,
-              tel: tel,
-              height: height,
-              weight: weight,
+              position: position,
+              sal: sal,
+              hiredate: hiredate,
+              comm: comm,
               deptno: deptno,
-              profno: profno,
             });
           } catch (e) {
             console.error(e);
@@ -176,7 +149,7 @@
           }
 
           if (json != null) {
-            window.location.href = `view-stud.html?id=${id}`;
+            window.location.href = `view-prof.html?id=${id}`;
           }
         });
     </script>

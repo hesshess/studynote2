@@ -14,9 +14,6 @@
       <!-- body -->
       <section>
         <form name="form" id="department-form">
-          <!-- 수정할 대상에 대한 일련번호값을 포함해야하므로 hidden필드로 처리한다 -->
-          <input type="hidden" name="id" id="id" />
-
           <div class="form-group">
             <label for="name">학생이름<span class="text-danger">*</span></label>
             <div><input type="text" name="name" id="name" /></div>
@@ -77,7 +74,7 @@
           </div>
           <hr />
           <div class="text-center">
-            <button type="submit">수정하기</button>
+            <button type="submit">저장하기</button>
             <button type="reset">다시작성</button>
           </div>
         </form>
@@ -88,76 +85,33 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/js/include.js"></script>
+
     <script>
-      //페이지가 실행되면서 자동으로 동작해야하므로 즉시실행함수 형태로 구현
-      (async () => {
-        //GET파라미터 받기
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get('id');
-        console.log(id);
-
-        //파라미터가 정상적이지 않으므로 메시지 출력, 전페이지이동 처리후 수행중단(return)
-        if (!id) {
-          alert('학생번호가 없습니다');
-          history.back();
-          return;
-        }
-
-        //Ajax요청
-        //기본에 저장되어 있는 내용을 <form>안에 셋팅하기 위해 Ajax로 데이터를 가져온다
-        let json = null;
-
-        try {
-          json = await axios.get(`http://localhost:3000/student/${id}`);
-        } catch (e) {
-          console.error(e);
-          alert('요청을 처리하는데 실패했습니다');
-          return;
-        }
-
-        //가져온 데이터가 있다면 <input> 태그의 value속성으로 가져온 값을 적용한다
-        //일련번호와 같이 시스템이 관리하는 값은 hidden요소로 포함시킨다.
-        if (json != null) {
-          const { data } = json;
-          document.querySelector('#id').value = data.id;
-          document.querySelector('#name').value = data.name;
-          document.querySelector('#userid').value = data.userid;
-          document.querySelector('#grade').value = data.grade;
-          document.querySelector('#idnum').value = data.idnum;
-          document.querySelector('#birthdate').value = data.birthdate;
-          document.querySelector('#tel').value = data.tel;
-          document.querySelector('#height').value = data.height;
-          document.querySelector('#weight').value = data.weight;
-          document.querySelector('#deptno').value = data.deptno;
-          document.querySelector('#profno').value = data.profno;
-        }
-      })();
-
-      //수정버튼의 submit이벤트
       document
         .querySelector('#department-form')
         .addEventListener('submit', async (e) => {
           e.preventDefault();
 
           //입력값 받아오기
-          const id = document.querySelector('#id').value;
           const name = document.querySelector('#name').value;
           const userid = document.querySelector('#userid').value;
           const grade = document.querySelector('#grade').value;
           const idnum = document.querySelector('#idnum').value;
           const birthdate = document.querySelector('#birthdate').value;
           const tel = document.querySelector('#tel').value;
-          const weight = document.querySelector('#weight').value;
           const height = document.querySelector('#height').value;
+          const weight = document.querySelector('#weight').value;
           const deptno = document.querySelector('#deptno').value;
-          const profno = document.querySelector('#profno').value;
+          const deptno = document.querySelector('#deptno').value;
 
-          //입력값에 대한 유효성 검사 진행....(이 예제에서는 생략)
+          //입력값에 대한 유효성 검사 진행...(이 예제에서는 생략)
 
           let json = null;
 
           try {
-            json = await axios.put(`http://localhost:3000/student/${id}`, {
+            //대부분의 백엔드가 일련번호는 자체적으로 생성하기 때문에 create에 해당하는 데이터 추가 처리에서는 백엔드에게
+            //일련번호를 제외한 변수만 전달해야한다
+            json = await axios.post('http://localhost:3000/student', {
               name: name,
               userid: userid,
               grade: grade,
@@ -171,12 +125,16 @@
             });
           } catch (e) {
             console.error(e);
-            alert('요청을 처리하는데 실패했습니다');
+            alert('요청을 처리하는데 실패했습니다.');
             return;
           }
 
           if (json != null) {
-            window.location.href = `view-stud.html?id=${id}`;
+            const { data } = json;
+            //백엔드에서 데이터 저장에 대한 응답으로 보낸 JSON에는 생성된 신규 항목에 대한 일련번호가 포함되어있다
+            //이 값을 활용하여 상세 페이지로 이동해야한다.
+            //이때, 어떤 대상을 열함할 것인지에 대한 GET파라터를 구성한다.
+            window.location = 'view-stud.html?id=' + data.id;
           }
         });
     </script>

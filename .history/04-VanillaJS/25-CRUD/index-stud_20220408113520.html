@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>학생 관리 ::: MYSCHOOL</title>
+    <title>교수 관리 ::: MYSCHOOL</title>
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
@@ -14,33 +14,30 @@
       <!-- body -->
       <section>
         <p>
-          <a href="add-stud.html">새 학생 추가</a>
+          <a href="add-prof.html">새 교수 추가</a>
         </p>
         <table class="table">
           <colgroup>
-            <col width="8%" />
-            <col width="8%" />
-            <col width="8%" />
-            <col width="8%" />
-            <col width="8%" />
-            <col width="8%" />
-            <col width="8%" />
-            <col width="8%" />
-            <col width="8%" />
+            <col width="10%" />
+            <col width="15%" />
+            <col width="10%" />
+            <col width="10%" />
+            <col width="10%" />
+            <col width="10%" />
+            <col width="10%" />
+            <col width="10%" />
+            <col width="15%" />
           </colgroup>
           <thead>
             <tr>
-              <th class="text-center">학생번호</th>
+              <th class="text-center">교수번호</th>
               <th class="text-center">이름</th>
               <th class="text-center">아이디</th>
-              <th class="text-center">학년</th>
-              <th class="text-center">주민번호</th>
-              <th class="text-center">생년월일</th>
-              <th class="text-center">전화번호</th>
-              <th class="text-center">키</th>
-              <th class="text-center">몸무게</th>
-              <th class="text-center">학과번호</th>
-              <th class="text-center">담당교수의 일련번호</th>
+              <th class="text-center">직급</th>
+              <th class="text-center">급여</th>
+              <th class="text-center">입사일</th>
+              <th class="text-center">보직수당</th>
+              <th class="text-center">부서번호(학과번호)</th>
               <th class="text-center">-</th>
             </tr>
           </thead>
@@ -61,7 +58,7 @@
 
         //ajax 요청
         try {
-          json = await axios.get(`http://localhost:3000/student`);
+          json = await axios.get(`http://localhost:3000/professor`);
         } catch (e) {
           console.error(e);
           alert('요청을 처리하는데 실패했습니다');
@@ -89,7 +86,7 @@
             //-->어떤 학과를 열함할 것인가를 의미하는 id값을 GET파라미터로 전달함
             //대체로 id라는 이름의 변수는 그 대상을 식별하기 위한 고유한 값을 의미(=일련번호)
             const a1 = document.createElement('a');
-            a1.setAttribute('href', `view-stud.html?id=${v.id}`);
+            a1.setAttribute('href', `view-prof.html?id=${v.id}`);
             a1.innerHTML = v.name;
             td2.appendChild(a1);
 
@@ -98,47 +95,35 @@
             tr.appendChild(td3);
 
             const td4 = document.createElement('td');
-            td4.innerHTML = v.grade;
+            td4.innerHTML = v.position;
             tr.appendChild(td4);
 
             const td5 = document.createElement('td');
-            td5.innerHTML = v.idnum;
+            td5.innerHTML = v.sal;
             tr.appendChild(td5);
 
             const td6 = document.createElement('td');
-            const date = new Date(v.birthdate).toLocaleDateString();
+            const date = new Date(v.hiredate).toLocaleDateString();
             td6.innerHTML = date;
             tr.appendChild(td6);
 
             const td7 = document.createElement('td');
-            td7.innerHTML = v.tel;
+            td7.innerHTML = v.comm;
             tr.appendChild(td7);
 
             const td8 = document.createElement('td');
-            td8.innerHTML = v.height;
+            td8.innerHTML = v.deptno;
             tr.appendChild(td8);
 
-            const td9 = document.createElement('td');
-            td9.innerHTML = v.weight;
-            tr.appendChild(td9);
-
-            const td10 = document.createElement('td');
-            td10.innerHTML = v.deptno;
-            tr.appendChild(td10);
-
-            const td11 = document.createElement('td');
-            td11.innerHTML = v.profno;
-            tr.appendChild(td11);
-
             //네번째칸을 tr에 추가
-            const td12 = document.createElement('td');
-            tr.appendChild(td12);
+            const td9 = document.createElement('td');
+            tr.appendChild(td9);
 
             //어떤 항목을 수정할 것인지를 GET파라미터로 담은 링크를 칸에 추가
             const a2 = document.createElement('a');
-            a2.setAttribute('href', `edit-stud.html?id=${v.id}`);
+            a2.setAttribute('href', `edit-prof.html?id={v.id}`);
             a2.innerHTML = '수정';
-            td12.appendChild(a2);
+            td9.appendChild(a2);
 
             //어떤 항목을 삭제할 것인지를 dataset으로 저장하고 있는 링트를 칸에 추가
             const a3 = document.createElement('a');
@@ -147,7 +132,7 @@
             a3.dataset.name = v.name;
             a3.innerHTML = '삭제';
             a3.classList.add('btn-delete');
-            td12.appendChild(a3);
+            td9.appendChild(a3);
 
             //구성된 tr을 tbody에 추가
             listBody.appendChild(tr);
@@ -159,7 +144,7 @@
               const id = current.dataset.id;
               const name = current.dataset.name;
 
-              if (!confirm(`정말 ${name}을(를) 삭제 하시겠습니까?`)) {
+              if (!confirm(`정말 ${dname}을(를) 삭제 하시겠습니까?`)) {
                 return;
               }
 
@@ -167,7 +152,7 @@
 
               try {
                 json = await axios.delete(
-                  `http://localhost:3000/student/${id}`
+                  `http://localhost:3000/professor/${id}`
                 );
               } catch (e) {
                 console.error(e);

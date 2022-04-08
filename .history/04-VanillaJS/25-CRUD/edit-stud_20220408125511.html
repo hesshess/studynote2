@@ -119,17 +119,19 @@
         //일련번호와 같이 시스템이 관리하는 값은 hidden요소로 포함시킨다.
         if (json != null) {
           const { data } = json;
-          document.querySelector('#id').value = data.id;
-          document.querySelector('#name').value = data.name;
-          document.querySelector('#userid').value = data.userid;
-          document.querySelector('#grade').value = data.grade;
-          document.querySelector('#idnum').value = data.idnum;
-          document.querySelector('#birthdate').value = data.birthdate;
-          document.querySelector('#tel').value = data.tel;
-          document.querySelector('#height').value = data.height;
-          document.querySelector('#weight').value = data.weight;
-          document.querySelector('#deptno').value = data.deptno;
-          document.querySelector('#profno').value = data.profno;
+          document.querySelector('#id').innerHTML = data.id;
+          document.querySelector('#name').innerHTML = data.name;
+          document.querySelector('#userid').innerHTML = data.userid;
+          document.querySelector('#grade').innerHTML = data.grade;
+          document.querySelector('#idnum').innerHTML = data.idnum;
+          document.querySelector('#birthdate').innerHTML = new Date(
+            data.birthdate
+          ).toLocaleDateString();
+          document.querySelector('#tel').innerHTML = data.tel;
+          document.querySelector('#height').innerHTML = data.height;
+          document.querySelector('#weight').innerHTML = data.weight;
+          document.querySelector('#deptno').innerHTML = data.deptno;
+          document.querySelector('#profno').innerHTML = data.profno;
         }
       })();
 
