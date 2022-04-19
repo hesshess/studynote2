@@ -19,11 +19,6 @@
       "id": 202,
       "dname": "기계공학과",
       "loc": "4호관"
-    },
-    {
-      "dname": "asd",
-      "loc": "asd",
-      "id": 203
     }
   ],
   "professor": [
@@ -108,13 +103,13 @@
       "deptno": 202
     },
     {
-      "name": "ㅁㄴㅇㄹ",
-      "userid": "ㅁㄴㅇㄹ",
-      "position": "ㅁㄴㅇㄹ",
-      "sal": "ㅁㄴㅇㄹ",
-      "hiredate": "2022-04-04",
-      "comm": "ㅁㄴㅇㄹ",
-      "deptno": "ㅁㄴㅇㄹ",
+      "name": "새로운교수",
+      "userid": "new-professor-id",
+      "position": "professor",
+      "sal": "20000",
+      "hiredate": "2022-04-01",
+      "comm": "",
+      "deptno": "202",
       "id": 9909
     }
   ],

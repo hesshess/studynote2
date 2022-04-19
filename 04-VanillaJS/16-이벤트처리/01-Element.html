@@ -7,18 +7,61 @@
     <title>Document</title>
   </head>
   <body>
-    <h1 id="foo"></h1>
-    <script>
-      //스크립트를 body태그 닫기 직전에 위치시키면
-      //웹 브라우저가 HTML태그를 모두 식별한 후에 js가 실행되게 된다.
-      const foo = document.getElementById('foo');
-      foo.innerHTML = 'Hello World';
+    <h1 id="myid"></h1>
+    <h2 class="mycls"></h2>
+    <h2 class="mycls"></h2>
+    <p></p>
+    <p></p>
 
-      /*
-        앞서 확인한 방식들보다 JS코드를 맨 마지막에 배치하는 것이 페이지 로딩 속도가 더 빠르다.
-        페이지 포딩속도가 빠르기 때문에 검색엔진이 이페이지를 식별하는데도 더 수월하다.
-        그래서 구글은 몇년 전부터 JS코드가 아래에 배치된 페이지에 검색 결과 우선권을 주고있따.
-        */
+    <div class="a">
+      <div class="b">
+        <h3 id="c"></h3>
+      </div>
+    </div>
+    <h3 class="myh3"></h3>
+    <h3 class="myh3"></h3>
+    <h3 class="myh3"></h3>
+
+    <!-- 자바스크립트 블록은 body태그 종료 직전에 위치 -->
+    <script>
+      /*Tag 이름으로 접급하는 경우*/
+      const el1 = document.getElementsByTagName('p');
+
+      //특정 태그가 여러개 존재하는 것이 대부분이므로 항상 배열 형태 (컬렉션)으로 반환된다
+      //-->반복문 처리가 필요함
+      for (let i = 0; i < el1.length; i++) {
+        el1[i].innerHTML = 'p태그영역(' + i + ')';
+      }
+
+      //클래스 이름으로 접금하는경우
+      const el2 = document.getElementsByClassName('mycls');
+
+      //특정 클래스 여러개 존재하는 것이 대부분이므로 항상 배열 형태(컬렉션으로 반환된다)
+      //->반복 처리 필요함
+      let count = 0;
+      for (let e of el2) {
+        e.innerHTML = '.mycls영역(' + count + ')';
+        count++;
+      }
+
+      //id 값으로 객체 가져오기
+      //ID값은 항상 단 하나만 존재하므로 리턴은 단일 객체
+      //->반복문이 불필요
+      const el3 = document.getElementById('myid');
+      el3.innerHTML = '#myid영역';
+
+      //css 선택자로 가져오기
+      const el4 = document.querySelector('.a > .b > #c');
+      el4.innerHTML = '.a > .b > #c';
+
+      //css선택자로 복수 객체가져오기
+      //->반복문 처리가 필요함
+      //리턴타입이 배열과 비슷한 NodeList타입의 객체
+      //->배열과 특성은 동일하지만 forEach이외의 탐색을 위함 메서드는 포함하고 있지않다
+      const el5 = document.querySelectorAll('.myh3');
+      el5.forEach((v, i) => {
+        v.innerHTML = '.myh3영역 (' + i + ')';
+      });
     </script>
   </body>
 </html>
