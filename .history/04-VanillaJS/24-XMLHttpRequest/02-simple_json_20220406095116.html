@@ -22,13 +22,12 @@
         e.preventDefault();
 
         const xhr = new XMLHttpRequest();
-        console.log('XHR()', xhr);
         const method = 'GET';
         const url = 'backend/hello.json';
+        xhr.open(method, url);
 
         xhr.onreadystatechange = (e) => {
           const ajax = e.target;
-          console.log('e.target', ajax);
 
           if (ajax.readyState == XMLHttpRequest.DONE) {
             if (ajax.status == 200) {
@@ -74,7 +73,6 @@
             }
           } //end if
         };
-        xhr.open(method, url);
         xhr.send();
       });
     </script>

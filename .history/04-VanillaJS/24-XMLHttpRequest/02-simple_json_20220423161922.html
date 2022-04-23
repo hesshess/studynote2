@@ -24,7 +24,9 @@
         const xhr = new XMLHttpRequest();
         console.log('XHR()', xhr);
         const method = 'GET';
+
         const url = 'backend/hello.json';
+        xhr.open(method, url);
 
         xhr.onreadystatechange = (e) => {
           const ajax = e.target;
@@ -74,7 +76,6 @@
             }
           } //end if
         };
-        xhr.open(method, url);
         xhr.send();
       });
     </script>
