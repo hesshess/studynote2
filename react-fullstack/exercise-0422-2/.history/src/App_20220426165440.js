@@ -15,27 +15,10 @@ const App = () => {
     <div>
       <h1 className={myStyles.title}>My School</h1>
       {/**Link 구성 */}
-      <nav>
-        <Link
-          to="/department"
-          className={[myStyles.myBg, myStyles.mySize].join(' ')}
-        >
-          학과목록
-        </Link>
-        &nbsp;|&nbsp;
-        <Link
-          to="/professor"
-          className={[myStyles.myColor, myStyles.mySize].join(' ')}
-        >
-          교수목록
-        </Link>
-        &nbsp;|&nbsp;
-        <Link
-          to="/student"
-          className={[myStyles.myBg, myStyles.myBg].join(' ')}
-        >
-          학생목록
-        </Link>
+      <nav className={myStyles.center}>
+        <Link to="/department">학과목록</Link>&nbsp;|&nbsp;
+        <Link to="/professor">교수목록</Link>&nbsp;|&nbsp;
+        <Link to="/student">학생목록</Link>
       </nav>
       <hr />
 

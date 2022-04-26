@@ -1,11 +1,8 @@
-/**
- * HTTP GET 파라미터를 전달받는 페이지
- */
 import React from 'react';
-
+import Stucom from './components/Stucom';
 import data from './myschool';
 
-const StudentGet = () => {
+const Student = () => {
   //기존의 콘솔 출력 내용 삭제함
   console.clear();
 
@@ -32,20 +29,7 @@ const StudentGet = () => {
         </thead>
         <tbody>
           {student.map((item) => {
-            return (
-              <tr>
-                <td>{item.id}</td>
-                <td>{item.name}</td>
-                <td>{item.grade}</td>
-                <td>{item.idnum}</td>
-                <td>{new Date(item.birthdate).toLocaleDateString()}</td>
-                <td>{item.tel}</td>
-                <td>{item.height}</td>
-                <td>{item.weight}</td>
-                <td>{item.deptno}</td>
-                <td>{item.profno}</td>
-              </tr>
-            );
+            return <Stucom item={item} />;
           })}
         </tbody>
       </table>

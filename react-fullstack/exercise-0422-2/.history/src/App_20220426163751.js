@@ -8,34 +8,15 @@ import Student from './Student';
 
 import data from './myschool';
 
-import myStyles from './assets/css/mystyle.module.css';
-
 const App = () => {
   return (
     <div>
-      <h1 className={myStyles.title}>My School</h1>
+      <h1>My School</h1>
       {/**Link 구성 */}
       <nav>
-        <Link
-          to="/department"
-          className={[myStyles.myBg, myStyles.mySize].join(' ')}
-        >
-          학과목록
-        </Link>
-        &nbsp;|&nbsp;
-        <Link
-          to="/professor"
-          className={[myStyles.myColor, myStyles.mySize].join(' ')}
-        >
-          교수목록
-        </Link>
-        &nbsp;|&nbsp;
-        <Link
-          to="/student"
-          className={[myStyles.myBg, myStyles.myBg].join(' ')}
-        >
-          학생목록
-        </Link>
+        <Link to="/department">학과목록</Link>&nbsp;|&nbsp;
+        <Link to="/professor">교수목록</Link>&nbsp;|&nbsp;
+        <Link to="/student">학생목록</Link>
       </nav>
       <hr />
 

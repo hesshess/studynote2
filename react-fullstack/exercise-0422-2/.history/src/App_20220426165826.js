@@ -23,19 +23,8 @@ const App = () => {
           학과목록
         </Link>
         &nbsp;|&nbsp;
-        <Link
-          to="/professor"
-          className={[myStyles.myColor, myStyles.mySize].join(' ')}
-        >
-          교수목록
-        </Link>
-        &nbsp;|&nbsp;
-        <Link
-          to="/student"
-          className={[myStyles.myBg, myStyles.myBg].join(' ')}
-        >
-          학생목록
-        </Link>
+        <Link to="/professor">교수목록</Link>&nbsp;|&nbsp;
+        <Link to="/student">학생목록</Link>
       </nav>
       <hr />
 
