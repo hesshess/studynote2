@@ -51,11 +51,11 @@ const MyBox = styled.div`
 
   /**색상값이 전될된 경우 해당값 사용, 그렇지 않은 경우 "black"을 기본값으로 사용 */
   /**color: #000; */
-  color: ${(props) => props.color || 'black'};
+  //color: ${({ color }) => color || 'black'};
   /** ||앞에 조건이 거짓일때 뒷부분 실행*/
   &:hover {
     transform: scale(1.05, 1.05) rotate(-10deg);
-    background-color: ${({ color }) => color || '#eeeeee'};
+    background-color: ${(props) => props.color || '#eeeeee'};
     color: #fff;
   }
 

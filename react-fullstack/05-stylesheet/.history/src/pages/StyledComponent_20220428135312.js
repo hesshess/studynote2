@@ -55,7 +55,7 @@ const MyBox = styled.div`
   /** ||앞에 조건이 거짓일때 뒷부분 실행*/
   &:hover {
     transform: scale(1.05, 1.05) rotate(-10deg);
-    background-color: ${({ color }) => color || '#eeeeee'};
+    //background-color: ${({ color }) => color || '#eeeeee'};
     color: #fff;
   }
 
