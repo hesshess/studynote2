@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>이젠-풀스택-클론코딩2</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="template2.css" />
+  </head>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <nav id="navbar">
+      <div class="navbar__logo">
+        <a href="#home" class="bar-item"><b>BR</b> Architects</a>
+      </div>
+      <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="navbar__menu">
+        <a href="#projects" class="bar-item">Projects</a>
+        <a href="#about" class="bar-item">About</a>
+        <a href="#contact" class="bar-item">Contact</a>
+      </div>
+    </nav>
+
+    <header id="home">
+      <img src="./img/architect.jpg" alt="Architect" style=/>
+      <h1><span class="br">BR</span><span class="arc">Architects</span></h1>
+    </header>
+
+    <content>
+      <!-- About Section -->
+      <section id="projects">
+        <div class="title-box">
+          <h3>Projects</h3>
+        </div>
+        <div class="list-box">
+          <div class="houses">
+            <img src="./img/house2.jpg" alt="house" />
+            <div class="house__name">Spring</div>
+          </div>
+          <div class="houses">
+            <img src="./img/house3.jpg" alt="house" />
+            <div class="house__name">Summer</div>
+          </div>
+          <div class="houses">
+            <img src="./img/house4.jpg" alt="house" />
+            <div class="house__name">Autumn</div>
+          </div>
+          <div class="houses">
+            <img src="./img/house5.jpg" alt="house" />
+            <div class="house__name">Winter</div>
+          </div>
+          <div class="houses">
+            <img src="./img/house2.jpg" alt="house" />
+            <div class="house__name">Spring</div>
+          </div>
+          <div class="houses">
+            <img src="./img/house3.jpg" alt="house" />
+            <div class="house__name">Summer</div>
+          </div>
+          <div class="houses">
+            <img src="./img/house4.jpg" alt="house" />
+            <div class="house__name">Autumn</div>
+          </div>
+          <div class="houses">
+            <img src="./img/house5.jpg" alt="house" />
+            <div class="house__name">Winter</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu Section -->
+      <section id="about">
+        <div class="title-box">
+          <h3>About</h3>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
+          </p>
+        </div>
+        <div class="team-box">
+          <div class="team-mem">
+            <img src="./img/team2.jpg" alt="John" />
+            <h3>John Doe</h3>
+            <p>CEO & Founder</p>
+            <p>
+              Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse
+              sodales pellentesque elementum.
+            </p>
+            <p><button>Contact</button></p>
+          </div>
+          <div class="team-mem">
+            <img src="./img/team1.jpg" alt="Jane" />
+            <h3>Jane Doe</h3>
+            <p>Architect</p>
+            <p>
+              Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse
+              sodales pellentesque elementum.
+            </p>
+            <p><button>Contact</button></p>
+          </div>
+          <div class="team-mem">
+            <img src="./img/team3.jpg" alt="Mike" />
+            <h3>Mike Ross</h3>
+            <p>Architect</p>
+            <p>
+              Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse
+              sodales pellentesque elementum.
+            </p>
+            <p><button>Contact</button></p>
+          </div>
+          <div class="team-mem">
+            <img src="./img/team4.jpg" alt="Dan" />
+            <h3>Dan Star</h3>
+            <p>Architect</p>
+            <p>
+              Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse
+              sodales pellentesque elementum.
+            </p>
+            <p><button>Contact</button></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <div class="title-box">
+          <h3>Contact</h3>
+          <p>Lets get in touch and talk about your next project.</p>
+        </div>
+        <form>
+          <input type="text" placeholder="Name" required name="Name" />
+          <input type="text" placeholder="Email" required name="Email" />
+          <input type="text" placeholder="Subject" required name="Subject" />
+          <input type="text" placeholder="Comment" required name="Comment" />
+          <button class="massage">SEND MESSAGE</button>
+        </form>
+      </section>
+      <section id="map">
+        <img src="./img/map.jpg" />
+      </section>
+
+      <!-- End page content -->
+    </content>
+    <!-- Footer -->
+    <footer>
+      <p>Powered by CSS</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.3.1/index.min.js"></script>
+    <script src="../notice.js"></script>
+    <script>
+      // Notice.init('본인이름', 'pdf파일경로');
+      Notice.init('왕혜수', '../pdf/template2.pdf');
+    </script>
+  </body>
+</html>
