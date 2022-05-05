@@ -1,13 +1,6 @@
-# 연습문제 22.05.03 - 왕혜수
-
------
-![실행결과]('./1.png')
-
-## App.js
-```javascript
 import React from 'react';
 
-const App = () => {
+const PrintStars = () => {
   const div = React.useRef();
   const [numStars, setNumStars] = React.useState(0);
   const rowNumStars = (e) => {
@@ -24,7 +17,8 @@ const App = () => {
   }, [numStars]);
 
   return (
-    <div className="App">
+    <div>
+      <h1>Hook 연습문제1</h1>
       <h3>useState, useEffect, useRef를 사용한 별찍기 구현</h3>
       <hr />
       <input type="number" value={numStars} onChange={rowNumStars} />
@@ -33,7 +27,5 @@ const App = () => {
     </div>
   );
 };
-export default App;
 
-
-```
+export default PrintStars;

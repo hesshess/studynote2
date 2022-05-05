@@ -1,13 +1,6 @@
-# 연습문제 22.05.03 - 왕혜수
-
------
-![실행결과]('./1.png')
-
-## App.js
-```javascript
 import React from 'react';
 
-const App = () => {
+const PrintStar = () => {
   const div = React.useRef();
   const [numStars, setNumStars] = React.useState(0);
   const rowNumStars = (e) => {
@@ -33,7 +26,12 @@ const App = () => {
     </div>
   );
 };
+
+const App()={
+  return(
+  
+  <PrintStar/>
+  
+  )
+};
 export default App;
-
-
-```

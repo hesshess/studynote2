@@ -1,21 +1,14 @@
-# 연습문제 22.05.03 - 왕혜수
-
------
-![실행결과]('./1.png')
-
-## App.js
-```javascript
 import React from 'react';
 
 const App = () => {
   const div = React.useRef();
-  const [numStars, setNumStars] = React.useState(0);
+  const [numStars, setNumStars] = useState(0);
   const rowNumStars = (e) => {
     setNumStars(e.currentTarget.value);
   };
   React.useEffect(() => {
     div.current.innerHTML = '';
-    for (let i = 0; i < numStars; i++) {
+    for (let i = 0; i < rowNum; i++) {
       for (let j = 0; j < i + 1; j++) {
         div.current.innerHTML += '*';
       }
@@ -34,6 +27,3 @@ const App = () => {
   );
 };
 export default App;
-
-
-```

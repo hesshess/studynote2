@@ -5,13 +5,6 @@ import MenuLink from './components/MenuLink';
 
 import MyState from './pages/MyState';
 import DateRange1 from './pages/DateRange1';
-import MyEffect from './pages/MyEffect';
-import MyRef from './pages/MyRef';
-import MyReducer from './pages/MyReducer';
-import DateRange2 from './pages/DateRange2';
-import MyMemo from './pages/MyMemo';
-import MyCallback from './pages/MyCallback';
-import MyWidth from './pages/MyWidth';
 
 function App() {
   return (
