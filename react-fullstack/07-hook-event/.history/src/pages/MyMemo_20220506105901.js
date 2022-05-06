@@ -1,4 +1,5 @@
 import React from 'react';
+import { useMemo } from 'react';
 import dayjs from 'dayjs';
 
 const MyMemo = () => {
@@ -38,7 +39,7 @@ const MyMemo = () => {
    * 콜백의 결과가 저장되는 myLen은 일반 상태값과 동일하게 사용할 수 있다.
    * 즉, myWord가 변경될 때만 콜백이 리턴하는 값을 활용하여 myLen을 갱신한다
    */
-  const myLen = React.useMemo(() => {
+  const myLen = useMemo(() => {
     return getLength(myWord);
   }, [myWord]);
 

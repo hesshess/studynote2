@@ -8,7 +8,6 @@ const MenuLinkContainer = styled(NavLink)`
   cursor: pointer;
   text-decoration: none;
   padding-bottom: 2px;
-  color: #222;
 
   &:hover {
     color: #22b8cf;
