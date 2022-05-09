@@ -12,7 +12,7 @@ const PrintStars = () => {
       for (let j = 0; j <= i; j++) {
         str += '*';
       }
-      str += '<br />';
+      str += <br />;
     }
     result.current.innerHTML = str;
   }, [number]);

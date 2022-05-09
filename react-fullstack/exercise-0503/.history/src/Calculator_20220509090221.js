@@ -1,12 +1,3 @@
-# 연습문제 22.05.03 - 왕혜수
-
------
-![실행결과]('./2.png')
-![실행결과]('./3.png')
-
-
-## App.js
-```javascript
 import React, { useReducer, useRef, useCallback, useMemo } from 'react';
 
 function Cal(state, action) {
@@ -26,14 +17,14 @@ function Cal(state, action) {
 const Calculator = () => {
   const a = useRef(0);
   const b = useRef(0);
-  const arith = useRef();
+  const ar = useRef();
 
   const [result, setResult] = useReducer(Cal, 0);
   const onClick = useCallback(() => {
     setResult({
       num1: Number(a.current.value),
       num2: Number(b.current.value),
-      operator: arith.current[arith.current.selectedIndex].value,
+      operator: ar.current[ar.current.selectedIndex].value,
     });
   }, []);
 
@@ -43,7 +34,7 @@ const Calculator = () => {
   return (
     <div>
       <input type="number" ref={a} />
-      <select ref={arith}>
+      <select ref={ar}>
         <option value="+">+</option>
         <option value="-">-</option>
         <option value="*">*</option>
@@ -52,13 +43,9 @@ const Calculator = () => {
       <input type="number" ref={b} />
       <button onClick={onClick}>계산</button>
       <hr />
-      <h1 style={{ color: even }}>{result}</h1>
+      <div style={{ color: even }}>{result}</div>
     </div>
   );
 };
 
 export default Calculator;
-
-```
-
-> 혼자 풀어보려고 해도 useReducer에서 action값을 보낼 때 객체로 보내는 내용이 잘 떠오르지가 되지않아 결국엔 또 답을 보고 참고하였습니다

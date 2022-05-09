@@ -72,7 +72,7 @@ const MyEffect = () => {
         src={sample}
         alt="Hello React"
         width="480"
-        style={{ filter: 'brightness(' + myBrightness + '%)' }}
+        style={` filter: 'brightness(' + myBrightness + '%)' `}
       />
     </>
   );

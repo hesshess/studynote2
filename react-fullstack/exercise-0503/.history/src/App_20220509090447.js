@@ -12,8 +12,8 @@ function App() {
       <h1>hook 연습문제</h1>
       <nav>
         <MenuLink to="/printstars">별찍기</MenuLink>
-        <MenuLink to="/arithmetics">사칙연산(강사님)</MenuLink>
-        <MenuLink to="/cal">사칙연산(나)</MenuLink>
+        <MenuLink to="/arithmetics">사칙연산</MenuLink>
+        <MenuLink to="/cal">내 계산기</MenuLink>
       </nav>
       <hr />
       <Routes>

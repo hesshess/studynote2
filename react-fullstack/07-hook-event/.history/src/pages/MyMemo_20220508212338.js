@@ -4,15 +4,15 @@ import dayjs from 'dayjs';
 const MyMemo = () => {
   const day = dayjs();
 
-  // //파라미터로 전달되는 단어의 길이를 반환하는 함수 --> 처리비용이 매우 큰 함수를 가정함
-  const getLength = (w) => {
-    console.log(
-      'getLength(%s) 호출됨! ::: %s',
-      w,
-      day.format('YY/MM/DD hh:mm:ss.ms')
-    );
-    return w.length;
-  };
+  //파라미터로 전달되는 단어의 길이를 반환하는 함수 --> 처리비용이 매우 큰 함수를 가정함
+  // const getLength = (w) => {
+  //   console.log(
+  //     'getLength(%s) 호출됨! ::: %s',
+  //     w,
+  //     day.format('YY/MM/DD hh:mm:ss.ms')
+  //   );
+  //   return w.length;
+  // };
 
   //처리할 단어들
   const words = ['City', 'Eye', 'Apple', 'Apple', 'Orange'];
@@ -39,7 +39,14 @@ const MyMemo = () => {
    * 즉, myWord가 변경될 때만 콜백이 리턴하는 값을 활용하여 myLen을 갱신한다
    */
   const myLen = React.useMemo(() => {
-    return getLength(myWord);
+    return (myWord) => {
+      console.log(
+        'getLength(%s) 호출됨! ::: %s',
+        myWord,
+        day.format('YY/MM/DD hh:mm:ss.ms')
+      );
+      return myWord.length;
+    };
   }, [myWord]);
 
   return (

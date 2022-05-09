@@ -7,14 +7,8 @@ const PrintStars = () => {
     setNum(e.target.value);
   };
   React.useEffect(() => {
-    let str = '';
-    for (let i = 0; i < number; i++) {
-      for (let j = 0; j <= i; j++) {
-        str += '*';
-      }
-      str += '<br />';
-    }
-    result.current.innerHTML = str;
+    const numStars = '*' * number;
+    result.current.innerHTML = numStars;
   }, [number]);
   return (
     <div>
