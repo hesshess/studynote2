@@ -60,7 +60,7 @@ const MyRef = () => {
       >
         red
       </button>
-
+      r
       <button
         type="button"
         onClick={() => {
