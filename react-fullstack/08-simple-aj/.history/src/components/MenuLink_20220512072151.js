@@ -43,7 +43,7 @@ const MenuLinkContainer = styled(NavLink)`
 `;
 
 const MenuLink = ({ to, children }) => (
-  <MenuLinkContainer to={to}>{children}</MenuLinkContainer>
+  <MenuLinkContainer to={to}>{childred}</MenuLinkContainer>
 );
 
 //React.memo()를 사용하여 함수형 컴포넌트의 리렌더링 성능을 최적화
