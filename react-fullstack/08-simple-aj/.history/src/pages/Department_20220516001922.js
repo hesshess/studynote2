@@ -207,7 +207,6 @@ const Department = () => {
         });
       }
     })();
-
     //상태변수를 되돌린다
     setUpdateId(-1);
   }, []);
@@ -228,7 +227,6 @@ const Department = () => {
               <th>학과번호</th>
               <th>학과명</th>
               <th>학과위치</th>
-              <th>수정</th>
               <th>삭제</th>
             </tr>
           </thead>
