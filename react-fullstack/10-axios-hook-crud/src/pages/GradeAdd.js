@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import Table from '../components/Table';
 
+import regexHelper from '../libs/RegexHelper';
+
 //Table 컴포넌트의 CSS를 확장한 컴포넌트
 const TableEx = styled(Table)`
   margin-top: 50px;
@@ -61,6 +63,34 @@ const GradeAdd = () => {
     //이벤트가 발생한 폼객체
     const current = e.target;
 
+    try {
+      regexHelper.value(current.name, '이름을 입력하세요.');
+      regexHelper.kor(current.name, '이름은 한글로 입력하세요.');
+      regexHelper.minLength(
+        current.name,
+        2,
+        '이름은 최소 2글자 이상입력해야 합니다.'
+      );
+      regexHelper.maxLength(
+        current.name,
+        10,
+        '이름은 최대 10글자 까지 입력가능.'
+      );
+      regexHelper.value(current.level, '학년을 선택하세요.');
+      regexHelper.check(current.sex, '성별을 선택하세요.');
+      regexHelper.value(current.kor, '국어 점수를 입력하세요.');
+      regexHelper.num(current.kor, '.국어 점수는 숫자만 입력 가능');
+      regexHelper.value(current.eng, '영어 점수를 입력하세요.');
+      regexHelper.num(current.eng, '.영어 점수는 숫자만 입력 가능');
+      regexHelper.value(current.math, '수학 점수를 입력하세요.');
+      regexHelper.num(current.math, '.수학 점수는 숫자만 입력 가능');
+      regexHelper.value(current.sin, '과학 점수를 입력하세요.');
+      regexHelper.num(current.sin, '.과학 점수는 숫자만 입력 가능');
+    } catch (e) {
+      window.alert(e.message);
+      e.field.focus();
+      return;
+    }
     //입력받은 값 취득하기
     const name = current.name.value;
     const level = current.level.value;

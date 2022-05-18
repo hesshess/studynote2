@@ -54,7 +54,7 @@ const GradeEdit = () => {
   );
 
   /**form의 submit버튼이 눌러졌을때 호출될 이벤트 핸들러 */
-  const onSubmit = (e) => {
+  const onSubmit = React.useCallback((e) => {
     e.preventDefault();
 
     //이벤트가 발생한 폼객체
@@ -106,7 +106,7 @@ const GradeEdit = () => {
         navigate('/');
       }
     })();
-  };
+  }, []);
 
   return (
     <>
