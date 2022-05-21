@@ -1,4 +1,32 @@
 {
+  "member": [
+    {
+      "userid": "zxcv000edited",
+      "pw": "zxcv",
+      "name": "이름바꿈",
+      "year": 2002,
+      "month": 2,
+      "date": 22,
+      "sex": "F",
+      "email": "zxcv@zxcv.com",
+      "country": "+44)",
+      "tel": 1012345678,
+      "id": 2
+    },
+    {
+      "userid": "qwre",
+      "pw": "qwer",
+      "name": "확인용",
+      "year": 2000,
+      "month": 4,
+      "date": 22,
+      "sex": "M",
+      "email": "qwer@zxcv.com",
+      "country": "+61)",
+      "tel": 1012345678,
+      "id": 3
+    }
+  ],
   "department": [
     {
       "id": 101,
