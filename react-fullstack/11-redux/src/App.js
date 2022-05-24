@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import MenuLink from './components/MenuLink';
+import Counter from './pages/Counter';
+import Department from './pages/Department';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Redux Toolkit</h1>
+      <nav>
+        <MenuLink to="/counter">Counter</MenuLink>
+        <MenuLink to="/department">Department</MenuLink>
+      </nav>
+      <hr />
+      <Routes>
+        <Route path="/counter" element={<Counter />} />
+        <Route path="/department" element={<Department />} />
+      </Routes>
     </div>
   );
 }
 
-export default App;
+export default React.memo(App);
