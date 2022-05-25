@@ -37,9 +37,7 @@ const MovieRank = memo(() => {
   //redux store로 부터 ajax관련 상태값 구독
   const { data, loading, error } = useSelector((state) => state.movieRank);
   //검색을 위해 파라미터로 전달할 날짜값을 관리하는 상태변수
-  const [targetDt, setTargetDt] = React.useState(
-    dayjs().add(-1, 'd').format('YYYY-MM-DD')
-  );
+  const [targetDt, setTargetDt] = React.useState(dayjs().format('YYYY'));
   //이 컴포넌트가 화면에 마운트 되었는지를 확인하기 위한 hook
   const mountedRef = useMountedRef();
   //그래프에 전달할 데이터

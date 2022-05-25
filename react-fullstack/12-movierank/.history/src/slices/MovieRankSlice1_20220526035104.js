@@ -19,17 +19,6 @@ export const getMovieRank = createAsyncThunk(
           targetDt: payload.targetDt,
         },
       });
-
-      //에러가 발생하더라도 HTTP상태코드는 200으로 응답이 오기 때문에 catch문이 동작하지 않는다
-      //그러므로 직접 에러를 감지해야 한다
-      if (result.data.faultInfo !== undefined) {
-        const err = new Error();
-        err.response = {
-          status: 500,
-          statusText: result.data.faultInfo.message,
-        };
-        throw err;
-      }
     } catch (err) {
       result = rejectWithValue(err.response);
     }

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Traffic from './pages/Traffic';
+import MovieRank from './pages/MovieRank1';
 
 function App() {
   return (
     <div>
-      <h1>13-EXAM</h1>
+      <h1>13-Movie-Rank</h1>
       <hr />
-      <Traffic />
+      <MovieRank />
     </div>
   );
 }

@@ -1,11 +1,10 @@
 import React, { memo } from 'react';
-import styled from 'styled-components';
 
 //상태값을 로드하기 위한 hook과 action함수를 dispatch할 hook참조
 import { useSelector, useDispatch } from 'react-redux';
 import useMountedRef from '../hooks/useMountedRef';
 //Slice에 정의된 액션함수들 참조
-import { getMovieRank } from '../slices/MovieRankSlice';
+import { getTraffic } from '../slices/TrafficSlice';
 
 //로딩바 컴포넌트
 import Spinner from '../components/Spinner';
@@ -13,41 +12,19 @@ import Spinner from '../components/Spinner';
 import Table from '../components/Table';
 //에러정보를 표시하기 위한 컴포넌트
 import ErrorView from '../components/ErrorView';
-//그래프를 표시하기 위한 컴포넌트
-import BarChartView from '../components/BarChartView';
 
-//날짜 처리 라이브러리
-import dayjs from 'dayjs';
-
-//그래프와 표를 배치하기 위한 flex-box
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-
-  .flex-item {
-    flex-basis: 50%;
-    box-sizing: border-box;
-    padding: 10px;
-  }
-`;
-
-const MovieRank = memo(() => {
+const Traffic = memo(() => {
   const dispatch = useDispatch();
   //redux store로 부터 ajax관련 상태값 구독
-  const { data, loading, error } = useSelector((state) => state.movieRank);
+  const { data, loading, error } = useSelector((state) => state.trafficAcc);
   //검색을 위해 파라미터로 전달할 날짜값을 관리하는 상태변수
-  const [targetDt, setTargetDt] = React.useState(
-    dayjs().add(-1, 'd').format('YYYY-MM-DD')
-  );
+  const [targetDt, setTargetDt] = React.useState();
   //이 컴포넌트가 화면에 마운트 되었는지를 확인하기 위한 hook
   const mountedRef = useMountedRef();
-  //그래프에 전달할 데이터
-  const [chartData, setChartData] = React.useState();
 
   //페이지가 열린 직후와 날짜값이 변경된 경우 리덕스 액션함수 디스패치 --> ajax 호출
   React.useEffect(() => {
-    dispatch(getMovieRank({ targetDt: targetDt.replaceAll('-', '') }));
+    dispatch(getTraffic({ targetDt: targetDt.replaceAll('-', '') }));
   }, [dispatch, targetDt]);
 
   //드롭다운의 선택이 변경된 경우의 이벤트
@@ -79,23 +56,28 @@ const MovieRank = memo(() => {
   return (
     <div>
       <Spinner visible={loading} />
-      <form>
-        <input
-          type="date"
-          className="form-control"
-          placeholder="날짜선택"
-          value={targetDt}
-          onChange={onDateChange}
-        />
-      </form>
+      <select name="year" onChange={onDateChange}>
+        <option value="">-- 년도 선택 --</option>
+        <option value="2005">2005년도</option>
+        <option value="2006">2006년도</option>
+        <option value="2007">2007년도</option>
+        <option value="2008">2008년도</option>
+        <option value="2009">2009년도</option>
+        <option value="2010">2010년도</option>
+        <option value="2011">2011년도</option>
+        <option value="2012">2012년도</option>
+        <option value="2013">2013년도</option>
+        <option value="2014">2014년도</option>
+        <option value="2015">2015년도</option>
+        <option value="2016">2016년도</option>
+        <option value="2017">2017년도</option>
+        <option value="2018">2018년도</option>
+      </select>
       <hr />
       {error ? (
         <ErrorView error={error} />
       ) : (
         <Container>
-          <div className="flex-item">
-            <BarChartView chartData={chartData} />
-          </div>
           <div className="flex-item">
             <Table>
               <thead>
@@ -110,7 +92,7 @@ const MovieRank = memo(() => {
               </thead>
               <tbody>
                 {data &&
-                  data.boxOfficeResult.dailyBoxOfficeList.map((v, i) => {
+                  data.map((v, i) => {
                     return (
                       <tr key={i}>
                         <td>{v.rank}</td>
@@ -131,4 +113,4 @@ const MovieRank = memo(() => {
   );
 });
 
-export default MovieRank;
+export default Traffic;

@@ -40,6 +40,8 @@ const MovieRank = memo(() => {
   const [targetDt, setTargetDt] = React.useState(
     dayjs().add(-1, 'd').format('YYYY-MM-DD')
   );
+  console.log(data);
+
   //이 컴포넌트가 화면에 마운트 되었는지를 확인하기 위한 hook
   const mountedRef = useMountedRef();
   //그래프에 전달할 데이터

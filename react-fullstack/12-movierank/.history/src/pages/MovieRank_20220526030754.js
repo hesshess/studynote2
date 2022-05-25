@@ -40,22 +40,11 @@ const MovieRank = memo(() => {
   const [targetDt, setTargetDt] = React.useState(
     dayjs().add(-1, 'd').format('YYYY-MM-DD')
   );
+
   //이 컴포넌트가 화면에 마운트 되었는지를 확인하기 위한 hook
   const mountedRef = useMountedRef();
   //그래프에 전달할 데이터
   const [chartData, setChartData] = React.useState();
-
-  //페이지가 열린 직후와 날짜값이 변경된 경우 리덕스 액션함수 디스패치 --> ajax 호출
-  React.useEffect(() => {
-    dispatch(getMovieRank({ targetDt: targetDt.replaceAll('-', '') }));
-  }, [dispatch, targetDt]);
-
-  //드롭다운의 선택이 변경된 경우의 이벤트
-  const onDateChange = React.useCallback((e) => {
-    e.preventDefault();
-    //선택값으로 상태값을 갱신한다 --> React.useEffect()에 의해 액션함수가 디스패치 된다
-    setTargetDt(e.target.value);
-  }, []);
 
   //ajax 연동 결과에서 그래프에 표시 할 데이터만 추려내어 chartData 상태값에 반영한다
   //ajax는 컴포넌트가 화면에 마운트됨과 동시에 실행되므로, 이 처리는 컴포넌트가 화면에 마운트 된 이후에 수행되어야만 한다
@@ -63,7 +52,7 @@ const MovieRank = memo(() => {
     //컴포넌트가 화면에 마운트된 이후에만 동작하도록 한다
     if (mountedRef.current) {
       const newData = {
-        movieNm: [],
+        mocieNm: [],
         audiCnt: [],
       };
 

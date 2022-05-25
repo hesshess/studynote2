@@ -5,7 +5,7 @@ import Traffic from './pages/Traffic';
 function App() {
   return (
     <div>
-      <h1>13-EXAM</h1>
+      <h1>12-EXAM</h1>
       <hr />
       <Traffic />
     </div>

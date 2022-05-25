@@ -2,8 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const API_URL =
-  'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json';
-const API_KEY = '42c46aaf72fbcf301dc3520f5a593307';
+  'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.xml';
+const API_KEY = 'beaf97bdf13dc2a95f261cec2bcf09c4';
 
 export const getMovieRank = createAsyncThunk(
   'MovieRankSlice/getMovieRank',
