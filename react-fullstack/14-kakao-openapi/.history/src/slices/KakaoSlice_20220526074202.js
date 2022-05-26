@@ -9,7 +9,7 @@ const API_URL = {
   image: 'https://dapi.kakao.com/v2/search/image',
 };
 
-const API_KEY = 'b0f17082be481e9fc421c393a2be7116';
+const API_KEY = '7eea8fd915b803fa78ad47a3a18545d1';
 
 export const getKakaoSearch = createAsyncThunk(
   'KakaoSlice/getKakaoSearch',
@@ -24,7 +24,7 @@ export const getKakaoSearch = createAsyncThunk(
           page: payload.page ? payload.page : 1,
           size: payload.size ? payload.size : 20,
         },
-        headers: { Authorization: `KakaoAK ${API_KEY}` },
+        headers: { Authorization: `KakaoAk ${API_KEY}` },
       });
     } catch (err) {
       result = rejectWithValue(err.response);
@@ -34,7 +34,7 @@ export const getKakaoSearch = createAsyncThunk(
 );
 
 const KakaoSlice = createSlice({
-  name: 'kakao',
+  name: 'kako',
   initialState: {
     meta: null,
     documents: null,

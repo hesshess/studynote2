@@ -24,7 +24,7 @@ export const getKakaoSearch = createAsyncThunk(
           page: payload.page ? payload.page : 1,
           size: payload.size ? payload.size : 20,
         },
-        headers: { Authorization: `KakaoAK ${API_KEY}` },
+        headers: { Authorization: `KakaoAk ${API_KEY}` },
       });
     } catch (err) {
       result = rejectWithValue(err.response);
@@ -34,7 +34,7 @@ export const getKakaoSearch = createAsyncThunk(
 );
 
 const KakaoSlice = createSlice({
-  name: 'kakao',
+  name: 'kako',
   initialState: {
     meta: null,
     documents: null,

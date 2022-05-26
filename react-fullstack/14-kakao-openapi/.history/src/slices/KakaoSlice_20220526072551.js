@@ -2,14 +2,14 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const API_URL = {
-  web: 'https://dapi.kakao.com/v2/search/web',
-  blog: 'https://dapi.kakao.com/v2/search/blog',
-  cafe: 'https://dapi.kakao.com/v2/search/cafe',
-  book: 'https://dapi.kakao.com/v3/search/book',
-  image: 'https://dapi.kakao.com/v2/search/image',
+  web: 'https://dapi.kako.com/v2/search/web',
+  blog: 'https://dapi.kako.com/v2/search/blog',
+  cafe: 'https://dapi.kako.com/v2/search/cafe',
+  book: 'https://dapi.kako.com/v3/search/book',
+  image: 'https://dapi.kako.com/v2/search/image',
 };
 
-const API_KEY = 'b0f17082be481e9fc421c393a2be7116';
+const API_KEY = 'a61e4397cc8055ea32482d2ac381c1fb';
 
 export const getKakaoSearch = createAsyncThunk(
   'KakaoSlice/getKakaoSearch',
@@ -24,7 +24,7 @@ export const getKakaoSearch = createAsyncThunk(
           page: payload.page ? payload.page : 1,
           size: payload.size ? payload.size : 20,
         },
-        headers: { Authorization: `KakaoAK ${API_KEY}` },
+        headers: { Authorization: `KakaoAk ${API_KEY}` },
       });
     } catch (err) {
       result = rejectWithValue(err.response);
@@ -34,7 +34,7 @@ export const getKakaoSearch = createAsyncThunk(
 );
 
 const KakaoSlice = createSlice({
-  name: 'kakao',
+  name: 'kako',
   initialState: {
     meta: null,
     documents: null,

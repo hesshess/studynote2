@@ -34,7 +34,7 @@ export const getKakaoSearch = createAsyncThunk(
 );
 
 const KakaoSlice = createSlice({
-  name: 'kakao',
+  name: 'kako',
   initialState: {
     meta: null,
     documents: null,
