@@ -20,9 +20,9 @@ const Test = memo(() => {
     );
   }, [dispatch]);
 
-  return loading ? (
+  return (loading ? (
     'loading...'
-  ) : error ? (
+  ) :( error ? (
     JSON.stringify(error)
   ) : (
     <>
@@ -32,6 +32,8 @@ const Test = memo(() => {
       {JSON.stringify(documents)}
     </>
   );
+  )
+  )
 });
 
 export default Test;
