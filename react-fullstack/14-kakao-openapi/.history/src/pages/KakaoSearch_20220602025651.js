@@ -90,7 +90,7 @@ const KakaoSearch = memo(() => {
         <ErrorView error={error} />
       ) : (
         documents && (
-          <ListContainer api={api}>
+          <ListContainer ali={api}>
             {documents.map((v, i) => {
               return api === 'image' ? (
                 <ImageItem

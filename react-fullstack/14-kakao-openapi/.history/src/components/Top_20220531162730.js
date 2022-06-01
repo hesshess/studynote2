@@ -38,10 +38,10 @@ const Top = memo(() => {
   const navigate = useNavigate();
 
   /**
-  const qs = useQueryString();
-  console.log(qs);
-  const query = qs.query;
-  /*/
+     * const qs = useQueryString();
+     * console.log(qs);
+     * const query = qs.query;
+     /*/
   const { query } = useQueryString();
   /**/
 
@@ -56,7 +56,7 @@ const Top = memo(() => {
   return (
     <div>
       <h1>카카오 검색</h1>
-      <Form onSubmit={onSearchSubmit}>
+      <Form bmit={onSearchSubmit}>
         <input type="search" name="query" defaultValue={query} />
         <button type="submit">검색</button>
       </Form>

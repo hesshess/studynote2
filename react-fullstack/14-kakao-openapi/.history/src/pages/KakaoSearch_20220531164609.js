@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useQueryString } from '../hooks/useQueryString';
 import { useSelector, useDispatch } from 'react-redux';
-import { getKakaoSearch } from '../slices/KakaoSlice';
+import getKakaoSearch from '../slices/KakaoSlice';
 import { useInView } from 'react-intersection-observer';
 
 import Spinner from '../components/Spinner';
@@ -32,7 +32,7 @@ const KakaoSearch = memo(() => {
   //리덕스를 통한 검색 결과 상태 조회
   const dispatch = useDispatch();
   const { meta, documents, loading, error } = useSelector(
-    (state) => state.kakao
+    (state) => state.kakako
   );
 
   //페이지 번호 상태값
@@ -69,18 +69,6 @@ const KakaoSearch = memo(() => {
     }
   }, [getContent, inView, loading, page]);
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  //   dispatch(
-  //     getKakaoSearch({
-  //       api: api,
-  //       query: query,
-  //       page: 1,
-  //       size: api === 'image' ? 80 : 50,
-  //     })
-  //   );
-  // }, [dispatch, api, query]);
-
   return (
     <div>
       <Spinner visible={loading} />
@@ -90,7 +78,7 @@ const KakaoSearch = memo(() => {
         <ErrorView error={error} />
       ) : (
         documents && (
-          <ListContainer api={api}>
+          <ListContainer ali={api}>
             {documents.map((v, i) => {
               return api === 'image' ? (
                 <ImageItem

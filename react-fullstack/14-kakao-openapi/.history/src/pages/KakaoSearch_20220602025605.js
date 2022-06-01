@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useQueryString } from '../hooks/useQueryString';
 import { useSelector, useDispatch } from 'react-redux';
 import { getKakaoSearch } from '../slices/KakaoSlice';
-import { useInView } from 'react-intersection-observer';
+//import { useInView } from 'react-intersection-observer';
 
 import Spinner from '../components/Spinner';
 import ErrorView from '../components/ErrorView';
@@ -69,17 +69,17 @@ const KakaoSearch = memo(() => {
     }
   }, [getContent, inView, loading, page]);
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  //   dispatch(
-  //     getKakaoSearch({
-  //       api: api,
-  //       query: query,
-  //       page: 1,
-  //       size: api === 'image' ? 80 : 50,
-  //     })
-  //   );
-  // }, [dispatch, api, query]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    dispatch(
+      getKakaoSearch({
+        api: api,
+        query: query,
+        page: 1,
+        size: api === 'image' ? 80 : 50,
+      })
+    );
+  }, [dispatch, api, query]);
 
   return (
     <div>
@@ -90,7 +90,7 @@ const KakaoSearch = memo(() => {
         <ErrorView error={error} />
       ) : (
         documents && (
-          <ListContainer api={api}>
+          <ListContainer ali={api}>
             {documents.map((v, i) => {
               return api === 'image' ? (
                 <ImageItem

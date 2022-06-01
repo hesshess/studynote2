@@ -31,9 +31,7 @@ const KakaoSearch = memo(() => {
   const { query } = useQueryString();
   //리덕스를 통한 검색 결과 상태 조회
   const dispatch = useDispatch();
-  const { meta, documents, loading, error } = useSelector(
-    (state) => state.kakao
-  );
+  const { documents, loading, error } = useSelector((state) => state.kakao);
 
   //페이지 번호 상태값
   const [page, setPage] = React.useState(1);
@@ -90,7 +88,7 @@ const KakaoSearch = memo(() => {
         <ErrorView error={error} />
       ) : (
         documents && (
-          <ListContainer api={api}>
+          <ListContainer ali={api}>
             {documents.map((v, i) => {
               return api === 'image' ? (
                 <ImageItem
