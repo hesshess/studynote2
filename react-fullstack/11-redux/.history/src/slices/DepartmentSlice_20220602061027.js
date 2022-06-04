@@ -15,6 +15,7 @@ export const getList = createAsyncThunk(
       result = rejectWithValue(err.response);
     }
     return result;
+    console.log(`result는 ${result}}`);
   }
 );
 
@@ -36,7 +37,7 @@ const departmentSlice = createSlice({
       return { ...state, loading: true };
     },
     [getList.fulfilled]: (state, { payload }) => {
-      console.log(`payload는 ${JSON.stringify(payload)}`);
+      console.log(`payload.data는 ${payload.data}`);
       return {
         data: payload?.data,
         loading: false,

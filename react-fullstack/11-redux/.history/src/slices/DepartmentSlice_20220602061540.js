@@ -36,7 +36,6 @@ const departmentSlice = createSlice({
       return { ...state, loading: true };
     },
     [getList.fulfilled]: (state, { payload }) => {
-      console.log(`payload는 ${JSON.stringify(payload)}`);
       return {
         data: payload?.data,
         loading: false,

@@ -23,7 +23,7 @@ const departmentSlice = createSlice({
   name: 'department',
   //이 모듈이 관리 하고자 하는 상태값들을 명시
   initialState: {
-    data: null, //Ajax처리를 통해 수신된 데이터
+    ddddata: null, //Ajax처리를 통해 수신된 데이터
     loading: false, //로딩 여부
     error: null, //에러정보
   },

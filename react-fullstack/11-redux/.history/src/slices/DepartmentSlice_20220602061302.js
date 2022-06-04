@@ -15,7 +15,6 @@ export const getList = createAsyncThunk(
       result = rejectWithValue(err.response);
     }
     return result;
-  }
 );
 
 /**Slice 정의 (Action 함수 + Reducer의 개념) */
