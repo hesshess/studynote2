@@ -12,8 +12,8 @@ import dayjs from 'dayjs';
 
 const Covid19 = memo(() => {
   const queryJson = useQueryString();
-  const input1 = queryJson['date1'];
-  const input2 = queryJson['date2'];
+  const input1 = queryJson['input1'];
+  const input2 = queryJson['input2plus'];
 
   const input2plus = dayjs(input2).add(1, 'd').format('YYYY-MM-DD');
   console.log(input2plus);
@@ -33,36 +33,36 @@ const Covid19 = memo(() => {
     };
     data &&
       data.forEach((v, i) => {
-        newData.dateNm.push(v.date.slice(2, 10));
+        newData.dateNm.push(v.date);
         newData.pplCnt.push(v[field]);
       });
     setChartData(newData);
-  }, [data, field]);
+  }, [data, field, input1, input2plus]);
 
   return (
     <div>
       <Spinner visible={loading} />
       {input1 && input2 && (
         <nav>
-          <MenuLink to={`/confirmed?date1=${input1}&date2${input2}`}>
+          <MenuLink to={`/confirmed?input1=${input1}&input2plus${input2}`}>
             일일확진자
           </MenuLink>
-          <MenuLink to={`/confirmed_acc?date1=${input1}&date2=${input2}`}>
+          <MenuLink to={`/confirmed_acc?input1=${input1}&input2plus=${input2}`}>
             누적확진자
           </MenuLink>
-          <MenuLink to={`/active?date1=${input1}&date2=${input2}`}>
+          <MenuLink to={`/active?input1=${input1}&input2plus=${input2}`}>
             격리환자
           </MenuLink>
-          <MenuLink to={`/released?date1=${input1}&date2=${input2}`}>
+          <MenuLink to={`/released?input1=${input1}&input2plus=${input2}`}>
             격리해제
           </MenuLink>
-          <MenuLink to={`/released_acc?date1=${input1}&date2=${input2}`}>
+          <MenuLink to={`/released_acc?input1=${input1}&input2plus=${input2}`}>
             누적격리해제
           </MenuLink>
-          <MenuLink to={`/death?date1=${input1}&date2=${input2}`}>
+          <MenuLink to={`/death?input1=${input1}&input2plus=${input2}`}>
             사망자
           </MenuLink>
-          <MenuLink to={`/death_acc?date1=${input1}&date2=${input2}`}>
+          <MenuLink to={`/death_acc?input1=${input1}&input2plus=${input2}`}>
             누적사망자
           </MenuLink>
         </nav>

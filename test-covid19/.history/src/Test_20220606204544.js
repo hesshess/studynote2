@@ -11,7 +11,7 @@ const Test = memo(() => {
     dispatch(
       getCovid({
         date_gte: '2020-02-17T00:00:00Z',
-        date_lte: '2022-05-31T00:00:00Z',
+        date_lte: '2020-02-17T00:00:00Z',
       })
     );
   }, [dispatch]);

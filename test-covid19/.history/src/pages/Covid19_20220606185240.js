@@ -18,6 +18,9 @@ const Covid19 = memo(() => {
   const input2plus = dayjs(input2).add(1, 'd').format('YYYY-MM-DD');
   console.log(input2plus);
 
+  const date1 = input1 + 'T00:00:00Z';
+  const date2 = input2 + 'T00:00:00Z';
+
   const { field } = useParams();
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.covid);
@@ -33,11 +36,11 @@ const Covid19 = memo(() => {
     };
     data &&
       data.forEach((v, i) => {
-        newData.dateNm.push(v.date.slice(2, 10));
+        newData.dateNm.push(v.date);
         newData.pplCnt.push(v[field]);
       });
     setChartData(newData);
-  }, [data, field]);
+  }, [data, field, date1, date2]);
 
   return (
     <div>
